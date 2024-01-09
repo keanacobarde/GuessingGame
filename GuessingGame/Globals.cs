@@ -25,6 +25,7 @@ namespace GuessingGame
             {
                 Console.WriteLine("Guess a number");
                 int UserNumber = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Your Guess ({attempts + 1}) > {UserNumber}");
                 if (UserNumber == Globals.SecretNumber)
                 {
                     Console.WriteLine("You guessed it!");
