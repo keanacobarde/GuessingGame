@@ -73,6 +73,7 @@ namespace GuessingGame
                         break;
                     case "4":
                         Console.WriteLine($"Cheater mode. You get unlimited guesses");
+                        Cheater.CheaterGameLoop();
                         break;
 
                 }
@@ -84,7 +85,7 @@ namespace GuessingGame
         }
 
 
-        // Game Loop - No Difficulty
+        // Game Loop
         public static void GameLoop()
         {
             int SecNum = SecretNumber.SecretNumberGenerator();
