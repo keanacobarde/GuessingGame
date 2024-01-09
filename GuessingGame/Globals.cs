@@ -14,24 +14,32 @@ namespace GuessingGame
             Console.WriteLine("Welcome to Guessing Game!");
         }
 
-        // Secret number
-        public static int SecretNumber = 42;
-
         // Game Loop - No Difficulty
         public static void GameLoop()
         {
+            int SecNum = SecretNumber.SecretNumberGenerator();
             int attempts = 0;
             while (attempts < 4)
             {
                 Console.WriteLine("Guess a number");
                 int UserNumber = int.Parse(Console.ReadLine());
                 Console.WriteLine($"Your Guess ({attempts + 1}) > {UserNumber}");
-                if (UserNumber == Globals.SecretNumber)
+                if (UserNumber == SecNum)
                 {
                     Console.WriteLine("You guessed it!");
                     break;
                 }
-                else 
+                else if (UserNumber < SecNum)
+                {
+                    Console.WriteLine("Your guess is too low");
+                    attempts++;
+                }
+                else if (UserNumber > SecNum)
+                { 
+                    Console.WriteLine("Your guess is too high");
+                    attempts++;
+                }
+                else
                 {
                     Console.WriteLine("Wrong!");
                     attempts++;
